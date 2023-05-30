@@ -13,15 +13,25 @@
 body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background: url(./images/test.png) 100% center;
   -webkit-user-select: none;
   -moz-user-select: none !important;
   -ms-user-select: none;
   user-select: none;
 }
 
+.background-image {
+  background: url(./images/test.png) 100% center no-repeat;
+  background-size: cover;
+  display: flex; 
+  flex: 1 0 auto;
+  position: absolute; 
+  height: 100%; 
+  width: 100%;
+}
+
 .search-section,
 .result-section,
+.gif-section,
 input#search,
 button#submit {
   color: #fff;
@@ -54,7 +64,7 @@ button {
 
 form {
   display: flex;
-  flex-flow: column wrap;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -205,7 +215,7 @@ button#close {
 }
 
 .fahrenheit {
-  grid-column: 2;
+  grid-column: 1;
   color: red;
   animation: tempSwitch 0.3s ease-in;
 }
@@ -268,6 +278,20 @@ button#close {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.gif-section {
+  display: flex;
+  justify-content: center;
+  max-width: 208px;
+  max-height: 222px;
+  padding: 0.5em; 
+  margin: 1em auto 0.5em; 
+}
+
+.gif {
+  height: 200px; 
+  width: 200px;
 }
 
 .hidden {

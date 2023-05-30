@@ -13,6 +13,8 @@
   const fahrenheit = document.querySelector('.fahrenheit')
   const tempSwitch = document.querySelector('#switch')
 
+  const gif = document.querySelector('.gif')
+
   function cacheQuery () {
     searchQuery = searchBar.value.toLowerCase().replace(/(\s+)\b/g, '-')
   }
@@ -25,15 +27,35 @@
       const weatherDataJson = await weatherData.json()
       celsius.innerHTML = await weatherDataJson.current.temp_c + ' &#8451'
       fahrenheit.innerHTML = await weatherDataJson.current.temp_f + ' &#8457'
-      weatherResult.textContent = await weatherDataJson.current.condition.text
+      const condition = await weatherDataJson.current.condition.text
+      weatherResult.textContent = condition
 
       const icon = await weatherDataJson.current.condition.icon
       symbol.setAttribute('src', `${icon}`)
 
       resultSection.classList.remove('hidden')
+
+      getGif(condition)
     } catch (error) {
       resetBtn.click()
       searchBar.setAttribute('placeholder', "Couldn't find the location!")
+      console.error(error)
+    }
+  }
+
+  async function getGif (keyword) {
+    try {
+      const imageData = await fetch(
+        `https://api.giphy.com/v1/gifs/translate?api_key=cewBcJgxDHHLhP5fADlJ51t7qP8PtrXQ&s=weather-${keyword}-sky`,
+        { mode: 'cors' })
+
+      const imageDataJSON = await imageData.json()
+      const imageURL = imageDataJSON.data.images.original.url
+      gif.setAttribute(
+        'style',
+        `background: url(${imageURL}) no-repeat center;
+        background-size: stretch`)
+    } catch (error) {
       console.error(error)
     }
   }

@@ -6,4 +6,4 @@ A weather forecast site using the Weather API and GIPHY API.
 
 - Search for a specific location.
 - Toggle displaying the data in Fahrenheit or Celsius.
-- Change the look of the page based on the data - background-color or adding images that describe the weather.
+- Adding images that describe the weather.

@@ -1,6 +1,6 @@
 # Description
 
-A weather forecast site using the Weather API
+A weather forecast site using the Weather API and GIPHY API.
 
 # Feature
 

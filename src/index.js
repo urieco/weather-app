@@ -1,11 +1,12 @@
 (function weatherApp () {
+  const backgroundImage = document.querySelector('.background-image')
   const searchBar = document.querySelector('#search')
   const submitBtn = document.querySelector('#submit')
   const resetBtn = document.querySelector('#reset')
   let searchQuery
   const symbol = document.querySelector('#symbol')
 
-  // Result
+  // Result Section
   const resultSection = document.querySelector('.result-section')
   const closeBtn = document.querySelector('#close')
   const weatherResult = document.querySelector('.weather-result')
@@ -32,13 +33,16 @@
 
       const icon = await weatherDataJson.current.condition.icon
       symbol.setAttribute('src', `${icon}`)
+      if (window.innerWidth > 600) {
+        resultSection.classList.remove('hidden')
+      }
 
-      resultSection.classList.remove('hidden')
+      backgroundImage.classList.add('slide-down')
 
       getGif(condition)
     } catch (error) {
       resetBtn.click()
-      searchBar.setAttribute('placeholder', "Couldn't find the location!")
+      searchBar.setAttribute('placeholder', 'Location not Found!')
       console.error(error)
     }
   }
@@ -46,7 +50,7 @@
   async function getGif (keyword) {
     try {
       const imageData = await fetch(
-        `https://api.giphy.com/v1/gifs/translate?api_key=cewBcJgxDHHLhP5fADlJ51t7qP8PtrXQ&s=weather-${keyword}-sky`,
+        `https://api.giphy.com/v1/gifs/translate?api_key=cewBcJgxDHHLhP5fADlJ51t7qP8PtrXQ&s=weather-climate-${keyword}`,
         { mode: 'cors' })
 
       const imageDataJSON = await imageData.json()
@@ -57,6 +61,11 @@
         background-size: stretch`)
     } catch (error) {
       console.error(error)
+      const placeholderImage = symbol.getAttribute('src')
+      gif.setAttribute(
+        'style',
+        `background: url(${placeholderImage}) no-repeat center;
+        background-size: stretch`)
     }
   }
 
@@ -80,6 +89,17 @@
     renderResult()
   })
 
-  closeBtn.addEventListener('click', () => resultSection.classList.add('hidden'))
+  closeBtn.addEventListener('click', () => {
+    if (window.innerWidth > 600) {
+      return resultSection.classList.add('hidden')
+    } else {
+      backgroundImage.classList.add('slide-up')
+      setTimeout(() => {
+        backgroundImage.classList.remove('slide-down')
+        backgroundImage.classList.remove('slide-up')
+      }, 1000)
+      resultSection.classList.add('hidden')
+    }
+  })
   tempSwitch.addEventListener('click', switchTempUnit)
 })()

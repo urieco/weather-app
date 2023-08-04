@@ -1,1 +1,54 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Weather App</title><link rel="stylesheet" href="style.css"/><script src="index.js" defer="defer"></script><script defer="defer" src="runtime.bundle.js"></script><script defer="defer" src="index.bundle.js"></script><script defer="defer" src="style.bundle.js"></script></head><body><div class="background-image"></div><div class="search-section"><img src="./images/logo.png" alt="Logo-CheckYourWeather" id="logo"/> <img src="./images/map-marker.svg" alt="Symbol" id="symbol"/><form id="search-form"><label for="search" class="instruction"><div class="caret"></div>Enter a location...</label> <input type="search" name="search" id="search"/> <button type="submit" id="submit">Search</button> <button type="reset" id="reset" class="hidden"></button></form></div><div class="result-section hidden"><div class="result-bar"><button id="close">X</button></div><div class="result-panel"><div class="weather-result"></div><div class="temp"><span class="celsius"></span> <span class="fahrenheit hidden"></span><div class="temp-switch"><input type="checkbox" name="switch" id="switch"/> <label for="switch" class="slider round"></label></div></div><div class="gif-section"><div class="gif"></div></div></div></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js" defer></script>
+  <script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script><script defer src="style.bundle.js"></script></head>
+
+  <body>
+    <div class="background-image">
+      <section class="search-section">
+        <img
+          src="./images/logo.png"
+          alt="Logo - CheckYourWeather"
+          id="logo"
+        />
+        <img
+          src="./images/map-marker.svg"
+          alt="Status Symbol"
+          id="symbol"
+        />
+        <form id="search-form">
+          <label for="search" class="instruction">
+            <span class="caret"></span>
+            Enter a Location...
+          </label>
+          <input type="search" name="search" id="search" />
+          <button type="submit" name="submit" id="submit">Search</button>
+          <button type="reset" name="reset" id="reset" class="hidden"></button>
+        </form>
+      </section>
+
+      <section class="result-section hidden">
+        <div class="result-bar">
+          <button name="close" id="close">X</button>
+        </div>
+        <div class="result-panel">
+          <div class="weather-result"></div>
+          <div class="temp">
+            <span class="celsius"></span>
+            <span class="fahrenheit hidden"></span>
+            <div class="temp-switch">
+              <input type="checkbox" name="switch" id="switch" />
+              <label for="switch" class="slider round"></label>
+            </div>
+          </div>
+          <div class="gif"></div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

@@ -330,8 +330,7 @@ button {
   .background-image {
     display: grid;
     padding-top: env(safe-area-inset-top);
-    padding-bottom: env(safe-area-inset-bottom);
-    transform: translateY(-50vh);
+    transform: translateY(-32.7%);
   }
 
   .search-section {
@@ -364,7 +363,7 @@ button {
   }
 
   .slide-up {
-    transform: translateY(-50vh);
+    transform: translateY(-32.7%);
     transition: transform 1s ease-out;
   }
 }

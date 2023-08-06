@@ -329,7 +329,9 @@ button {
 
   .background-image {
     display: grid;
-    transform: translateY(-32.7%);
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    transform: translateY(-50vh);
   }
 
   .search-section {
@@ -342,12 +344,16 @@ button {
     margin-top: -22em;
   }
 
+  #search-form {
+    padding-top: 5em;
+  }
+
   .result-section {
     visibility: visible;
     display: block;
     width: 100%;
     height: 100%;
-    margin: 1em 0;
+    margin: 0;
     animation: none;
     -webkit-animation: none;
   }
@@ -358,7 +364,7 @@ button {
   }
 
   .slide-up {
-    transform: translateY(-32.7%);
+    transform: translateY(-50vh);
     transition: transform 1s ease-out;
   }
 }

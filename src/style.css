@@ -337,6 +337,7 @@ button {
     grid-row: 2;
     width: 100vw;
     height: 120vh;
+    border-top-color: transparent;
   }
 
   #logo {
@@ -344,7 +345,7 @@ button {
   }
 
   #search-form {
-    padding-top: 5em;
+    padding-top: 3em;
   }
 
   .result-section {

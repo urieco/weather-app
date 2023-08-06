@@ -33,9 +33,8 @@
 
       const icon = await weatherDataJson.current.condition.icon
       symbol.setAttribute('src', `${icon}`)
-      if (window.innerWidth > 600) {
-        resultSection.classList.remove('hidden')
-      }
+
+      resultSection.classList.remove('hidden')
 
       backgroundImage.classList.add('slide-down')
 
